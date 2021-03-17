@@ -1,17 +1,15 @@
-{# @deprecated Use molecule('wishlist-selector-default', 'WishlistWidget') instead. #}
 {% extends model('component') %}
 
 {% define config = {
-    name: 'wishlist-selector',
+    name: 'wishlist-selector-default',
 } %}
 
 {% define data = {
-    sku: required,
-    idProductConcrete: required,
+    product: required
 } %}
 
 {% set isUserLoggedIn = is_granted('ROLE_USER') %}
-{% set disableAddToWishlist = data.idProductConcrete is empty %}
+{% set disableAddToWishlist = data.product.idProductConcrete is empty %}
 
 {% block body %}
     {% if isUserLoggedIn %}
@@ -34,7 +32,7 @@
         } only %}
     {% endif %}
 
-    <form method="POST" action="{{ path('wishlist/add-item', { sku: data.sku }) }}" class="{{config.name}}__form">
+    <form method="POST" action="{{ path('wishlist/add-item', { sku: data.product.sku }) }}" class="{{config.name}}__form">
         <div class="grid grid--justify">
             <div class="col col--sm-5">
                 {% if isUserLoggedIn %}
@@ -59,5 +57,13 @@
             </div>
         </div>
         <input id="wishlist_add_item_form__token" name="wishlist_add_item_form[_token]" type="hidden" value="{{ csrf_token('wishlist_add_item_form') }}">
+
+        {% if widgetGlobalExists('MerchantProductOfferWidget') %}
+            {% include molecule('wishlist-pdp-product-offer', 'MerchantProductOfferWidget') with {
+                data: {
+                    product: data.product,
+                }
+            } only %}
+        {% endif %}
     </form>
 {% endblock %}
