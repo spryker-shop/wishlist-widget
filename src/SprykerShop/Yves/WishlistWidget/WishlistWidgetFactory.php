@@ -12,9 +12,6 @@ use SprykerShop\Yves\WishlistWidget\Dependency\Client\WishlistWidgetToWishlistCl
 
 class WishlistWidgetFactory extends AbstractFactory
 {
-    /**
-     * @return \SprykerShop\Yves\WishlistWidget\Dependency\Client\WishlistWidgetToWishlistClientInterface
-     */
     public function getWishlistClient(): WishlistWidgetToWishlistClientInterface
     {
         return $this->getProvidedDependency(WishlistWidgetDependencyProvider::CLIENT_WISHLIST);

@@ -11,8 +11,5 @@ use Generated\Shared\Transfer\WishlistCollectionTransfer;
 
 interface WishlistWidgetToWishlistClientInterface
 {
-    /**
-     * @return \Generated\Shared\Transfer\WishlistCollectionTransfer
-     */
     public function getCustomerWishlistCollection(): WishlistCollectionTransfer;
 }

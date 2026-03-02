@@ -23,12 +23,6 @@ class WishlistMenuItemWidgetPlugin extends AbstractWidgetPlugin implements Wishl
      */
     protected const PAGE_KEY_WISHLIST = 'wishlist';
 
-    /**
-     * @param string $activePage
-     * @param int|null $activeEntityId
-     *
-     * @return void
-     */
     public function initialize(string $activePage, ?int $activeEntityId = null): void
     {
         $widget = new WishlistMenuItemWidget($activePage, $activeEntityId);

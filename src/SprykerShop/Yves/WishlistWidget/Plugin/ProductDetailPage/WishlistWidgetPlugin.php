@@ -16,27 +16,16 @@ use SprykerShop\Yves\ProductDetailPage\Dependency\Plugin\WishlistWidget\Wishlist
  */
 class WishlistWidgetPlugin extends AbstractWidgetPlugin implements WishlistWidgetPluginInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     *
-     * @return void
-     */
     public function initialize(ProductViewTransfer $productViewTransfer): void
     {
         $this->addParameter('product', $productViewTransfer);
     }
 
-    /**
-     * @return string
-     */
     public static function getName(): string
     {
         return static::NAME;
     }
 
-    /**
-     * @return string
-     */
     public static function getTemplate(): string
     {
         return '@WishlistWidget/views/pdp-wishlist-selector/pdp-wishlist-selector.twig';

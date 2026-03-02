@@ -24,9 +24,6 @@ class WishlistWidgetToWishlistClientBridge implements WishlistWidgetToWishlistCl
         $this->wishlistClient = $wishlistClient;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\WishlistCollectionTransfer
-     */
     public function getCustomerWishlistCollection(): WishlistCollectionTransfer
     {
         return $this->wishlistClient->getCustomerWishlistCollection();
