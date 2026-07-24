@@ -23,6 +23,11 @@ class WishlistMenuItemWidgetPlugin extends AbstractWidgetPlugin implements Wishl
      */
     protected const PAGE_KEY_WISHLIST = 'wishlist';
 
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     */
     public function initialize(string $activePage, ?int $activeEntityId = null): void
     {
         $widget = new WishlistMenuItemWidget($activePage, $activeEntityId);
@@ -31,7 +36,7 @@ class WishlistMenuItemWidgetPlugin extends AbstractWidgetPlugin implements Wishl
     }
 
     /**
-     * Specification:
+     * {@inheritDoc}
      * - Returns the name of the widget as it's used in templates.
      *
      * @api
@@ -44,7 +49,7 @@ class WishlistMenuItemWidgetPlugin extends AbstractWidgetPlugin implements Wishl
     }
 
     /**
-     * Specification:
+     * {@inheritDoc}
      * - Returns the template file path to render the widget.
      *
      * @api
