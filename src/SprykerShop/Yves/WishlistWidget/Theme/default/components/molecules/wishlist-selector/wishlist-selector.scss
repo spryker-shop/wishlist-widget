@@ -1,6 +1,12 @@
+@use 'sass:meta';
+
 @mixin wishlist-widget-wishlist-selector($name: '.wishlist-selector') {
     #{$name} {
         position: relative;
+
+        @if meta.mixin-exists(wishlist-widget-wishlist-selector-base-hook) {
+            @include wishlist-widget-wishlist-selector-base-hook;
+        }
 
         @content;
     }
